@@ -136,9 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     navMenu.forEach(item => {
         item.addEventListener('click', (event) => {
-            if(event.target = item) {
-                console.log('g')
-            }
             item.querySelector('.nav__link').classList.toggle('active')            
                     
             if(item == navMenu1) {
@@ -214,5 +211,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 
+    let loginBtn = document.querySelector('.login__btn')
+    const form = document.querySelector('.login__form')
+    
+    loginBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const data = new FormData(form);
+
+        const formJSON = Object.fromEntries(data.entries());
+
+        // formJSON.email = data.getAll(loginEmail);
+        // formJSON.pass = data.getAll(loginPass);
+
+        console.log( JSON.stringify(formJSON, null, 2));
+    });    
+
+
+    
 });
 
